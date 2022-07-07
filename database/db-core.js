@@ -1,19 +1,16 @@
 const mysql = require('mysql');
 
-const host = 'localhost',
-	    database = 'db_mycharlist',
-	    user = 'root',
-	    password = '';
+const {config_host,config_database,config_user,config_password} = require('./../config.js');
 
 /**
  * Conectando ao banco de dados
  * */
 const con = mysql.createPool({
   connectionLimit : 10,
-  host            : host,
-  user            : user,
-  password        : password,
-  database        : database
+  host            : config_host,
+  database        : config_database,
+  user            : config_user,
+  password        : config_password,
 });
 
 /**

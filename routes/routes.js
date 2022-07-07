@@ -10,9 +10,9 @@ router.post('/anime/save',anime.save);
 router.put('/anime/update/:ani_id',anime.update);
 router.delete('/anime/destroy/:ani_id',anime.delete);
 
-/*router.get('/testeee',function(req,res){
-	res.send("yyyyyyyy");
-	console.log("yyyyy");
+/*router.get('/teste',function(req,res){
+	res.send("Testeeee");
+	console.log("Rota: teste");
 });*/
 
 module.exports = router

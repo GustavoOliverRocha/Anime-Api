@@ -1,5 +1,7 @@
 const {con} = require('./../database/db-core.js');
-
+/**
+ * Exibe todos os anime inseridos
+ * */
 exports.show = (req,res)=> {
 	let baseUri = "localhost:8080/anime/id/";
 	let rows = [];
@@ -30,7 +32,9 @@ exports.show = (req,res)=> {
 	});
 
 }
-
+/**
+ * Insere um registro
+ * */
 exports.save = (req,res)=>{
 
 	let st_query = "INSERT INTO anime VALUES (null,?,?,?,?,?)";
@@ -57,6 +61,9 @@ exports.save = (req,res)=>{
 	});
 }
 
+/**
+ * Atualiza um registro
+ * */
 exports.update = (req,res)=>{
 	let atributes = [
 		req.body.name,
@@ -81,9 +88,14 @@ exports.update = (req,res)=>{
 	});
 }
 
+/**
+ * Exclui um registro
+ * */
 exports.delete =(req,res)=>{
+
 	let anime_id = req.params.ani_id;
 	let st_query = "DELETE FROM anime WHERE id = ?";
+
 	con.query(st_query,anime_id,(error,result)=>{
 		if(error)
 		{
@@ -98,6 +110,9 @@ exports.delete =(req,res)=>{
 	});
 }
 
+/**
+ * Exibe um registro em especifico pela id
+ * */
 exports.loadById = (req,res)=>{
 	let anime_id = req.params.ani_id;
 	let st_query = "SELECT * FROM anime WHERE id = ?";
